@@ -14,16 +14,17 @@ export function Dashboard() {
     const navigate = useNavigate();
 
     const auth = getAuth(app)
+
     onAuthStateChanged(auth, (user) => {
-      if (user) {
-          // User is signed in
-          const uid = user.uid
-          setUserSignedIn(true)
-          // ...
-      } else {
-          // User is signed out
-          setUserSignedIn(false)
-      }
+        if (user) {
+            // User is signed in
+            const uid = user.uid
+            setUserSignedIn(true)
+            // ...
+        } else {
+            // User is signed out
+            setUserSignedIn(false)
+        }
     });
 
     if (UserSignedIn) {

@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter, Navigate, HashRouter } from 'react-router-dom';
+import { Routes, Route, BrowserRouter, Navigate } from 'react-router-dom';
 import './App.css';
 
 import { Dashboard } from './Dashboard';
@@ -9,18 +9,16 @@ import AddNewPost from './AddNewPost';
 
 function App() {
   return (
-    <>
-      <HashRouter>
-        <Routes>
-          <Route path='/' element={ <Navigate to="/dashboard"/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path='/dashboard/:postId' element={<EditPost/>}/>
-          <Route path='/dashboard/add' element={<AddNewPost/>}/>
-          <Route path='/signup' element={<SignUp/>}/>
-          <Route path='/login' element={<LogIn/>}/>
-        </Routes>
-      </HashRouter>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={ <Navigate to="/dashboard"/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
+      <Route path='/dashboard/:postId' element={<EditPost/>}/>
+      <Route path='/dashboard/add' element={<AddNewPost/>}/>
+      <Route path='/signup' element={<SignUp/>}/>
+      <Route path='/login' element={<LogIn/>}/>
+    </Routes>
+  </BrowserRouter>
   )
 }
 
