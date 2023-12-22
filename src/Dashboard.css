@@ -1,0 +1,171 @@
+.DashboardContainer {
+    height: 100%;
+
+    background-color: var(--teal);
+}
+
+.HeaderContainer {
+    width: 100%;
+
+    padding: 20px 0px;
+
+    background-color: var(--white);
+
+    border-radius: 0px 0px 10px 10px;
+}
+
+.Header {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0px 20px;
+}
+
+.Header button {
+    outline: none;
+    background: none;
+    border: none;
+
+    font-size: 12px;
+
+    margin: 10px 0px;
+    padding: 10px 15px;
+
+    color: var(--white);
+    background-color: var(--black);
+
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.MyPostsContainer {
+    margin: 40px;
+}
+
+.MyPostsHeader {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    margin-bottom: 20px;
+
+    align-items: center;
+}
+
+.MyPostsHeader button {
+    outline: none;
+    background: none;
+    border: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin: 10px 0px;
+    padding: 10px 15px;
+
+    color: var(--black);
+
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.DisplayMyPosts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+
+    margin: 40px;
+}
+
+.MyPostCardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: var(--white);
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    padding: 20px;
+}
+
+.MyPostDiv {
+    display: flex;
+
+    max-height: 20%;
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    align-items: center;
+
+    overflow: scroll;
+}
+
+.MyPostDiv::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+.MyPostCardImageContainer {
+    width: 100%;
+    height: 60%;
+
+    text-align: center;
+
+    border-radius: 10px;
+    border: 1px solid var(--black);
+}
+
+.MyPostCardImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    margin: auto;
+
+    border-radius: 10px;
+}
+
+.ButtonContainer button{
+    outline: none;
+    background: none;
+    border: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    margin-right: 10px;
+    padding: 5px 15px;
+
+    color: var(--black);
+
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .DisplayMyPosts {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .DisplayMyPosts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .DisplayMyPosts {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

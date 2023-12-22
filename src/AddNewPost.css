@@ -1,0 +1,35 @@
+.AddPostContainer {
+    background-color: var(--teal);
+    min-height: 100%;
+
+    padding: 40px;
+}
+
+.AddPostContainer textarea {
+    background: none;
+    outline: none;
+    border: none;
+
+    width: 100%;
+    height: fit-content;
+
+    margin-top: 20px;
+    padding: 10px;
+
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+
+    resize: none;
+}
+
+.ButtonContainer {
+    display: flex;
+    justify-content: flex-start;
+
+    margin-top: 20px;
+}

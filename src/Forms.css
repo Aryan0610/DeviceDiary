@@ -1,0 +1,89 @@
+.FormContainer {
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background-color: var(--teal);
+}
+
+.FormSubContainer {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+
+    text-align: center;
+
+    width: 30%;
+}
+
+.FormSubContainer h1 {
+    text-align: center;
+}
+
+.Form {
+    width: 100%;
+
+    text-align: left;
+}
+
+.Form input {
+    outline: none;
+    background: none;
+    border: none;
+
+    margin: 10px 0px;
+    padding: 5px 10px;
+
+    font-size: 18px;
+
+    width: 100%;
+
+    border: 2px solid var(--black);
+    border-radius: 10px;
+}
+
+.Form button {
+    outline: none;
+    background: none;
+    border: none;
+
+    font-size: 18px;
+
+    margin: 10px 0px;
+    padding: 10px 20px;
+
+    color: var(--white);
+    background-color: var(--black);
+
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.FormSubContainer div {
+    width: 100%;
+    text-align: center;
+
+    font-size: 18px;
+
+    margin: 10px 0px;
+}
+
+.FormSubContainer div span {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .FormSubContainer {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .FormSubContainer {
+        width: 80%;
+    }
+}
