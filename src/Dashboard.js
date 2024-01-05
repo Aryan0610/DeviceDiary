@@ -1,7 +1,6 @@
 import './Dashboard.css'
 
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { getStorage, ref, deleteObject } from "firebase/storage";
 import { getFirestore, collection, doc, deleteDoc, getDocs, query, orderBy } from "firebase/firestore";
 
 import BrandNameImg from './Img/BrandName.svg'
@@ -18,12 +17,12 @@ export function Dashboard() {
     onAuthStateChanged(auth, (user) => {
         if (user) {
             // User is signed in
-            const uid = user.uid
             setUserSignedIn(true)
             // ...
         } else {
             // User is signed out
             setUserSignedIn(false)
+            navigate('/signup')
         }
     });
 
@@ -31,8 +30,6 @@ export function Dashboard() {
         return (
             <DashboardAfterSignIn/>
         )
-    } else {
-        navigate('/signup')
     }
 }
 
@@ -63,7 +60,7 @@ function DashboardAfterSignIn() {
       };
   
       fetchData();
-    }, []);
+    }, [setMyPosts, UID]);
 
     async function handleSignOut() {
         const auth = getAuth(app)
@@ -74,16 +71,14 @@ function DashboardAfterSignIn() {
         <div className='DashboardContainer'>
             <div className='HeaderContainer'>
                 <div className='Header'>
-                    <img src={BrandNameImg}/>
+                    <img alt='BrandName' src={BrandNameImg}/>
                     <button onClick={handleSignOut}>Log Out</button>
                 </div>
             </div>
 
-            <div className='MyPostsContainer'>
-                <div className='MyPostsHeader'>
-                    My Posts
-                    <button onClick={() => navigate('add')}>Add</button>
-                </div>
+            <div className='MyPostsHeader'>
+                MY BLOGS
+                <button onClick={() => navigate('add')}>Add</button>
             </div>
 
             <DisplayMyPosts MyPosts={MyPosts}/>
@@ -92,20 +87,21 @@ function DashboardAfterSignIn() {
 }
 
 async function HandleDelete(Id) {
-    const storage = getStorage()
-    const imgRef = ref(storage, `images/headerImages/${Id}`)
-    await deleteObject(imgRef)
-
     const db = getFirestore(app);
     await deleteDoc(doc(db, "Posts", Id));
 }
 
-function DisplayMyPosts({MyPosts}) {
-    const navigate = useNavigate()
+function DisplayDescription({description}) {
+    const temp = JSON.parse(description)
+    return (
+        <div className='MyPostDivDescription'>{temp[0].SectionDescription}</div>
+    )
+}   
 
+function DisplayMyPosts({MyPosts}) {
     if (MyPosts.length === 0) {
         return (
-            <div>
+            <div className='DisplayMyPosts'>
                 You have no posts
             </div>
         )
@@ -114,12 +110,10 @@ function DisplayMyPosts({MyPosts}) {
             <div className='DisplayMyPosts'>
                 {MyPosts.map((item, index) => (
                     <div className='MyPostCardContainer' key={index}>
-                        <div className='MyPostCardImageContainer'>
-                            <img src={item.URL}/>
-                        </div>
-                        <div className='MyPostDiv'>{item.Title}</div>
-                        <div className='MyPostDiv ButtonContainer'>
-                            <button onClick={() => navigate(`${item.Id}`)}>Edit</button>
+                        <div className='MyPostDivTitle'>{item.Title}</div>
+                        <DisplayDescription description={item.Description}/>
+                        <div className='MyPostDivButtonContainer'>
+                            {/* <button onClick={() => navigate(`${item.Id}`)}>Edit</button> */}
                             <button onClick={() => HandleDelete(item.Id)}>Delete</button>
                         </div>
                     </div>

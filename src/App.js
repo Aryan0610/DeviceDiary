@@ -9,7 +9,7 @@ import AddNewPost from './AddNewPost';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={ <Navigate to="/dashboard"/>}/>
         <Route path='/dashboard' element={<Dashboard/>}/>
@@ -18,7 +18,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/login' element={<LogIn/>}/>
       </Routes>
-  </HashRouter>
+  </BrowserRouter>
   )
 }
 

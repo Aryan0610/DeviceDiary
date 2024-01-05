@@ -14,7 +14,6 @@ export function LogIn() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
           // User is signed in
-          const uid = user.uid
           setUserSignedIn(true)
           // ...
       } else {
@@ -50,14 +49,14 @@ function LogInForm() {
     return (
         <div className="FormContainer">
             <div className="FormSubContainer">
-                <img src={BrandNameImg}/>
-                <h1>Log In</h1>
+                <img alt="brandname" src={BrandNameImg}/>
                 <form className="Form">
+                    <h1>Log In</h1>
                     <input type="email" placeholder="Email" onChange={(e) => {setEmail(e.target.value)}} value={Email} required/>
                     <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}} value={Password} required/>
                     <button onClick={handleSubmit}>Submit</button>
                 </form>
-                <div>
+                <div className="LinkTo">
                     Don't have an account? <span onClick={() => navigate('/signup')}>Sign Up</span>
                 </div>
             </div>

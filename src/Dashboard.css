@@ -1,7 +1,6 @@
 .DashboardContainer {
-    height: 100%;
-
-    background-color: var(--teal);
+    min-height: 100vh;
+    background-color: var(--blue);
 }
 
 .HeaderContainer {
@@ -9,16 +8,16 @@
 
     padding: 20px 0px;
 
-    background-color: var(--white);
+    background-color: var(--lightBlue);
 
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .Header {
     display: flex;
     justify-content: space-between;
 
-    margin: 0px 20px;
+    margin: 0px 80px;
 }
 
 .Header button {
@@ -26,20 +25,18 @@
     background: none;
     border: none;
 
+    font-family: 'Montserrat';
     font-size: 12px;
+    font-weight: 600;
 
     margin: 10px 0px;
     padding: 10px 15px;
 
-    color: var(--white);
-    background-color: var(--black);
+    color: var(--lightBlue);
+    background-color: var(--blue);
 
     border-radius: 10px;
     cursor: pointer;
-}
-
-.MyPostsContainer {
-    margin: 40px;
 }
 
 .MyPostsHeader {
@@ -49,7 +46,9 @@
     font-size: 18px;
     font-weight: 800;
 
-    margin-bottom: 20px;
+    margin: 40px 80px;
+
+    color: var(--pink);
 
     align-items: center;
 }
@@ -63,109 +62,124 @@
     font-weight: 800;
 
     margin: 10px 0px;
-    padding: 10px 15px;
+    padding: 10px 20px;
 
-    color: var(--black);
+    color: var(--yellow);
 
-    border: 2px solid var(--black);
+    border: 2px solid var(--yellow);
     border-radius: 10px;
     cursor: pointer;
+
+    transition: all 0.3s;
+}
+
+.MyPostsHeader button:hover {
+    transform: scale(1.05);
+
+    color: var(--pink);
+
+    border: 2px solid var(--pink);
+
+    transition: all 0.3s;
 }
 
 .DisplayMyPosts {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 40px;
 
-    margin: 40px;
+    margin: 0px 80px;
+
+    color: var(--lightBlue);
 }
 
 .MyPostCardContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    row-gap: 20px;
 
-    background-color: var(--white);
-
-    text-align: center;
-
-    border-radius: 30px;
+    text-align: left;
 
     padding: 20px;
+
+    border: 2px solid var(--lightBlue);
+    border-radius: 10px;
+
+    transition: all 0.3s;
+}   
+
+.MyPostCardContainer:hover {
+    transform: scale(1.025);
+
+    border: 2px solid var(--pink);
+    
+    transition: all 0.3s;
 }
 
-.MyPostDiv {
-    display: flex;
-
-    max-height: 20%;
-    width: 100%;
-
+.MyPostDivTitle {
+    font-family: 'Montserrat';
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 600;
 
-    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-    overflow: scroll;
+    color: var(--yellow);
 }
 
-.MyPostDiv::-webkit-scrollbar {
-    display: none;
-  }
-  
+.MyPostDivDescription {
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 400;
 
-.MyPostCardImageContainer {
-    width: 100%;
-    height: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-    text-align: center;
-
-    border-radius: 10px;
-    border: 1px solid var(--black);
+    color: var(--white);
 }
 
-.MyPostCardImageContainer img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-
-    margin: auto;
-
-    border-radius: 10px;
-}
-
-.ButtonContainer button{
+.MyPostDivButtonContainer button{
     outline: none;
     background: none;
     border: none;
 
-    font-size: 12px;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 600;
 
-    margin-right: 10px;
-    padding: 5px 15px;
+    color: var(--lightBlue);
 
-    color: var(--black);
-
-    border: 2px solid var(--black);
-    border-radius: 10px;
     cursor: pointer;
 }
 
 
 @media only screen and (max-width: 1000px) {
     .DisplayMyPosts {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .DisplayMyPosts {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media only screen and (max-width: 600px) {
     .DisplayMyPosts {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .Header { 
+        margin: 0px 20px;
+    }
+
+    .MyPostsHeader {
+        margin: 20px;
+    }
+
+    .DisplayMyPosts {
+        margin: 0px 20px;
     }
 }
