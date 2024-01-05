@@ -31,16 +31,16 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-full bg-teal">
-      <div className="flex justify-between bg-white px-4 lg:px-6 py-2.5 align-middle">
+    <div className="min-h-screen bg-blue">
+      <div className="bg-lightBlue px-20 py-5 align-middle max-sm:px-10">
         <Image src={BrandNameImg} alt='BrandName' onClick={() => push('/')}/>
       </div>
-      <div className="grid grid-cols-4 gap-10 p-10 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
+      <div className="px-20 py-10 grid grid-cols-3 gap-10 max-md:grid-cols-2 max-sm:grid-cols-1 max-sm:px-10">
         {data.map((item, index) => (
-          <div className="bg-white border border-black rounded-lg p-2.5" key={index}>
-            <img className="rounded-lg h-48 object-cover border border-black" src={item.URL} alt=""/>  
-            <h5 id="hideScroll" className="mb-2 text-xl font-medium tracking-tight text-black h-16 overflow-scroll p-5">{item.Title}</h5>
-            <button className="text-white border-solid border-2 bg-black border-black2 hover:bg-black2 font-medium rounded-lg text-sm px-4 py-2" onClick={() => push(`post/${item.Id}`)}>Read More</button>
+          <div className="bg-none border-2 border-lightBlue rounded-lg p-5 hover:border-pink transition-all duration-500" key={index}>
+            <div id="hideScroll" className="text-lg font-semibold text-yellow truncate">{item.Title}</div>
+            <div id="hideScroll" className="text-sm font-semibold text-white h-20 line-clamp-3">{JSON.parse(item.Description)[0].SectionDescription}</div>
+            <button className="text-sm font-semibold text-lightBlue" onClick={() => push(`post/${item.Id}`)}>Read More</button>
           </div>
         ))}
       </div>

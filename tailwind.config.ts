@@ -12,7 +12,11 @@ const config: Config = {
         'teal': '#B2C8BA',
         'black': '#282828',
         'black2': '#454545',
-        'white': '#EDF2FB'
+        'white': '#EDF2FB',
+        'blue': '#2D3250',
+        'lightBlue': '#7077A1',
+        'pink': '#F875AA',
+        'yellow': '#F6B17A'
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],
